@@ -1,25 +1,28 @@
 .navbar{
    width: 100%;
-   display: flex;
-   justify-content: space-between;
-   align-items: center; 
    position: fixed;
    top:0;
    z-index: 9999;
    background:linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
 }
 
+.container{
+    display: flex;
+   justify-content: space-between;
+   align-items: center; 
+   margin: 0 20px;
+}
+
 .leftnav{
     display: flex;
-    justify-content: center;
     align-items: center;
+    width: 100%;
 }
 .logo{
     width: 150px;
 }
 .navlist{
     display: flex;
-    list-style: none;
 }
 .navlist li{
     margin: 0 10px;
@@ -32,7 +35,8 @@
 
 .navright{
     display: flex;
-    justify-content:center;
+    width: 100%;
+    justify-content:flex-end;
     align-items: center;
 }
 .arrow{
@@ -40,11 +44,36 @@
     margin-left:5px ;
     transition: all 0.3s linear;
 }
-.profile_details_menu{
-    display: flex;
-}
 
 
 .arrowUp{
     transform: rotate(-180deg);
+}
+
+.profile_details{
+    position: relative;
+}
+
+.profile_details_menu{
+    position: absolute;
+    top: 40px;
+    left: -110px;
+    padding: 10px 10px;
+    width: 120px;
+    border-radius: 8px;
+    background-color: #0b0b0b;
+    color: #ffff;
+    text-align: center;
+}
+
+.profile_details_menu li:nth-child(2){
+  background-color: #c53d17;
+  padding: 10px 5px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.profile_details_menu li:nth-child(2):hover{
+    background-color: #aa3413;
 }

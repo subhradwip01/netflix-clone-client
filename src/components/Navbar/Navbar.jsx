@@ -28,6 +28,7 @@ const showDetailsMenu=()=>{
 }
   return (
     <nav className={classes.navbar}>
+        <div className={classes.container}>
         <div className={classes.leftnav}>
           <img className={classes.logo} src={logo} alt=""/>
           <ul className={classes.navlist}>
@@ -43,14 +44,17 @@ const showDetailsMenu=()=>{
             <img className={classes.profile} src={profile} alt="profile pic"/>
             <div className={classes.profile_details}>
             <FaAngleDown className={`${classes.arrow} ${showProfileDetails ? classes.arrowUp : ""}` } size={20} onClick={showDetailsMenu}/>
-            {/* <div className={classes.profile_details_menu}>
-               <NavLink to="/profile">Profile</NavLink>
-               <span>Logout</span>
-            </div> */}
+
+            {showProfileDetails && <div className={classes.profile_details_menu}>
+               <li><NavLink to="/profile">Profile</NavLink></li>
+               <li>Logout</li>
+            </div>}
+
             </div>
         </div>
         <div>
 
+        </div>
         </div>
     </nav>
   )
