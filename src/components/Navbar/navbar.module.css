@@ -1,0 +1,50 @@
+.navbar{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center; 
+   position: fixed;
+   top:0;
+   z-index: 9999;
+   background:linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+}
+
+.leftnav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    width: 150px;
+}
+.navlist{
+    display: flex;
+    list-style: none;
+}
+.navlist li{
+    margin: 0 10px;
+}
+
+.profile{
+    width: 50px;
+    border-radius: 100%;
+}
+
+.navright{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.arrow{
+    cursor: pointer;
+    margin-left:5px ;
+    transition: all 0.3s linear;
+}
+.profile_details_menu{
+    display: flex;
+}
+
+
+.arrowUp{
+    transform: rotate(-180deg);
+}
