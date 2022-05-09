@@ -43,7 +43,7 @@ const showDetailsMenu=()=>{
         <div className={classes.navright}>
             <img className={classes.profile} src={profile} alt="profile pic"/>
             <div className={classes.profile_details}>
-            <FaAngleDown className={`${classes.arrow} ${showProfileDetails ? classes.arrowUp : ""}` } size={20} onClick={showDetailsMenu}/>
+            <FaAngleDown className={`${classes.arrow} ${showProfileDetails ? classes.arrowUp : ""}` } size={20} onClick={showDetailsMenu} color="white"/>
 
             {showProfileDetails && <div className={classes.profile_details_menu}>
                <li><NavLink to="/profile">Profile</NavLink></li>
