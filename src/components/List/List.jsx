@@ -13,11 +13,9 @@ const List = () => {
     let distance = listRef.current.getBoundingClientRect().x - 50;
 
     let numberOfVideosInFrame=Math.ceil((window.innerWidth-100)/230)
-    console.log(numberOfVideosInFrame)
-    console.log(slideNum < 16-numberOfVideosInFrame)
-    if (direction === "left" && slideNum < 16-numberOfVideosInFrame) {
+    console.log(slideNum )
+    if (direction === "left" && slideNum > 0) {
       setSlideNum(slideNum - 1); 
-      console.log(distance)
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
     }
     if (direction === "right" && slideNum < 16-numberOfVideosInFrame) {
