@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 import logo from "../../assets/netflix.png"
 import {NavLink} from "react-router-dom"
 import profile from "../../assets/profile.png"
@@ -6,6 +6,7 @@ import classes from "./navbar.module.css"
 import {FaAngleDown} from "react-icons/fa"
 const Navbar = () => {
 const [showProfileDetails,setShowProfileDetails]=useState(false)
+ const navRef=useRef()
   const navMenu=[{
       name:"Homepage",
       path:"/"
@@ -23,11 +24,22 @@ const [showProfileDetails,setShowProfileDetails]=useState(false)
     path:"/mylist"
 } ]
 
+const navColorHandler=()=>{
+  console.log(window.screenY)
+  if(window.scrollY>=40){
+    navRef.current.style.background="black"
+  }else{
+    navRef.current.style.background="linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%)"
+  }
+}
+
+window.addEventListener("scroll",navColorHandler)
+
 const showDetailsMenu=()=>{
   setShowProfileDetails(p=>!p)
 }
   return (
-    <nav className={classes.navbar}>
+    <nav className={classes.navbar} ref={navRef}>
         <div className={classes.container}>
         <div className={classes.leftnav}>
           <img className={classes.logo} src={logo} alt=""/>
