@@ -4,6 +4,7 @@
    top:0;
    left: 0;
    z-index: 9999;
+   transition: background 0.2s linear;
    background:linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
 }
 
@@ -30,7 +31,7 @@
 }
 
 .profile{
-    width: 50px;
+    width: 40px;
     border-radius: 100%;
 }
 
