@@ -5,7 +5,6 @@
     overflow: hidden;
     top: 0;
     left: 0;
-    /* background-image: url("../../assets/bg3.jpg"); */
     background-position: center center;
     background-size: cover;
 }
@@ -21,6 +20,26 @@
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.076) 0%, rgba(0,0,0,1) 94%);
 
 }
+
+.category {
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+   .category select {
+      cursor: pointer;
+      background-color: var(--main-color);
+      border: 1px solid white;
+      color: white;
+      margin-left: 20px;
+      padding: 5px;
+    }
 
 .movie_details{
     position: absolute;
@@ -41,7 +60,7 @@
     margin-top: 20px;
 }
 
-button{
+.play,.info{
     padding: 10px 35px;
     margin: 5px 10px;
     font-size: 1.3rem;
