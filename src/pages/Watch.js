@@ -7,7 +7,7 @@ const Watch = () => {
   return (
     <div className={classes.watch}>
       <div className={classes.back}>
-        <IoArrowBack size={20} color="white"/>
+        <IoArrowBack size={20} color="white"/> Home
       </div>
       <video className={classes.video} autoPlay progress controls src={trailer}/>
     </div>
