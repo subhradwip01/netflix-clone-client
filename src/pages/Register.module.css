@@ -30,6 +30,7 @@
     width: 1108px;
     margin: 7px auto;
     display: flex;
+    flex-wrap: wrap;
     margin-top: 7px;
     color: #ffff;
     justify-content: space-around;
@@ -96,3 +97,48 @@ input {
 .error {
     color: rgb(255, 145, 0);
 }
+
+@media (max-width: 962px) {
+    .heading{
+        font-size: 3rem;
+        width: 75%;
+    }
+    .featureBox{
+        width: 100%;
+        text-align: center;
+    }
+    .featureSubheading{
+        margin: 0 auto;
+    }
+    .kids,
+    .homeMb{
+        padding: 0;
+    }
+    .registerButton{
+        font-size: 1rem;
+    }
+  }
+
+@media (max-width:462px) {
+    .heading{
+        font-size: 2rem;
+        width: 90%;
+    }
+    .subHeading{
+        font-size: 1.2rem;
+    }
+    .featureHeading{
+        font-size: 1.2rem;
+    }
+    .featureSubheading{
+        font-size: 1rem;
+    }
+    .featureImage img {
+        width: 70%;
+    }
+    .input{
+        width: 90%;
+    }
+    
+}  
+

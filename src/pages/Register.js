@@ -109,7 +109,7 @@ const Register = () => {
         </div>
         <div className={classes.featureCard}>
           <div className={classes.featureBox}>
-            <div className={classes.homeMb}>
+            <div className={`${classes.homeMb} ${classes.featureImage}`}>
               <img src={homeMb} />
             </div>
             <div className={classes.featureDetails}>
@@ -138,7 +138,7 @@ const Register = () => {
         </div>
         <div className={classes.featureCard}>
           <div className={classes.featureBox}>
-            <div className={classes.kids}>
+            <div className={`${classes.kids} ${classes.featureImage}`}>
               <img src={kids} />
             </div>
             <div className={classes.featureDetails}>
