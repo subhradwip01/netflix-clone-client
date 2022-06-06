@@ -1,0 +1,54 @@
+.login{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../assets/home-bg.jpg");
+}
+.form{
+   width: 50%;
+   padding: 40px 30px;
+   background: rgba(0, 0, 0, 0.274);
+   backdrop-filter: saturate(180%) blur(10px);
+   border-radius: 10px;
+
+}
+
+.formControls{
+    display: flex;
+    flex-direction: column;
+}
+.formControls input{
+   
+    background-color: white;
+    margin-top: 20px;
+    height: 50px;
+    border-radius: 5px;
+    padding: 10px 10px;
+    border: none;
+}
+.formControls button{
+    margin-top: 20px;
+    height: 100%;
+    background-color: red;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 0;
+    width: 100%;
+}
+.form a{
+    float: right;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 10px;
+}
+@media (max-width:462px){
+    .formControls button{
+        font-size: 17px;
+    }
+}
