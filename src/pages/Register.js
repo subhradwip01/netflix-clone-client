@@ -45,7 +45,7 @@ const Register = () => {
   };
   return (
     <div className={classes.register}>
-      <Navbar />
+      
       <div className={classes.wrapper}>
         <div
           className={classes.header}
