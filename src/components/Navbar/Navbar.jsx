@@ -1,11 +1,10 @@
 import React, { useState, useRef } from 'react'
 import logo from "../../assets/netflix.png"
-import { NavLink } from "react-router-dom"
+import { NavLink ,Link} from "react-router-dom"
 import profile from "../../assets/profile.png"
 import classes from "./navbar.module.css"
 import { FaAngleDown } from "react-icons/fa"
-const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+const Navbar = ({user}) => {
   const [showProfileDetails, setShowProfileDetails] = useState(false)
   const navRef = useRef()
   const navMenu = [{
@@ -44,7 +43,7 @@ const Navbar = () => {
       <div className={classes.container}>
         <div className={classes.leftnav}>
           <img className={classes.logo} src={logo} alt="" />
-          {isLoggedIn && <ul className={classes.navlist}>
+          {user && <ul className={classes.navlist}>
             {navMenu.map(item => (
               <li>
                 <NavLink to={item.path}>{item.name}</NavLink>
@@ -54,7 +53,7 @@ const Navbar = () => {
           </ul>}
         </div>
         <div className={classes.navright}>
-          {isLoggedIn && <><img className={classes.profile} src={profile} alt="profile pic" />
+          {user && <><img className={classes.profile} src={user.profilePic || profile} alt="profile pic" />
           <div className={classes.profile_details}>
             <FaAngleDown className={`${classes.arrow} ${showProfileDetails ? classes.arrowUp : ""}`} size={20} onClick={showDetailsMenu} color="white" />
 
@@ -64,8 +63,8 @@ const Navbar = () => {
             </div>}
 
           </div></>}
-          {!isLoggedIn && <>
-           <button className={classes.signIn}>Sign In</button>
+          {!user && <>
+           <Link className={classes.signIn} to="/login">Sign In</Link>
           </>}
         </div>
         <div>

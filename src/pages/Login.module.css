@@ -47,6 +47,22 @@
     cursor: pointer;
     margin-top: 10px;
 }
+
+.errMsg {
+    margin-bottom: 10px;
+    padding: 20px 10px;
+    background-color: #F6D7DA;
+    width: 310px;
+    border-radius: 10px;
+    text-align: center;
+    color: #D16C36;
+}
+
+.loginButton:disabled{
+    background-color: #e87052;
+    cursor: not-allowed;
+}
+
 @media (max-width:462px){
     .formControls button{
         font-size: 17px;
