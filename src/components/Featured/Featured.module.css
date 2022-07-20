@@ -1,5 +1,5 @@
 .featured{
-    height: 76vh;
+    height: 80vh;
     position: relative;
     width: 100vw;
     overflow: hidden;
@@ -29,12 +29,13 @@
     font-weight: 500;
     color: white;
     display: flex;
+    z-index: 9;
     align-items: center;
 }
 
    .category select {
       cursor: pointer;
-      background-color: var(--main-color);
+      background-color: #222222;
       border: 1px solid white;
       color: white;
       margin-left: 20px;
@@ -50,6 +51,9 @@
     flex-direction: column;
     z-index: 22;
     width:50%;
+}
+.movie_title{
+    font-size: 4rem;
 }
 .imgTitle{
     width: 40vw;
@@ -81,5 +85,8 @@ button:hover{
     /* transform: scale(1.1); */
     background-color: rgb(207, 204, 204);
     color: #000;
+}
+button:hover > svg{
+    color: black !important;
 }
 
