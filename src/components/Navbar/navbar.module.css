@@ -79,3 +79,21 @@
 .profile_details_menu li:nth-child(2):hover{
     background-color: #aa3413;
 }
+
+.signIn{
+    padding: 7px 10px;
+    margin: 5px 10px;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    background: #aa3413;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.2s linear;
+    width: 100px;
+}
+.signIn:hover{
+    background-color: #aa2f0d;
+    color: #ffff;
+}
