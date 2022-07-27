@@ -6,7 +6,7 @@ import classes from "./navbar.module.css";
 import { FaAngleDown } from "react-icons/fa";
 import { AuthContext } from "../../AuthContext/AuthContext";
 const Navbar = () => {
-  const {user} = useContext(AuthContext);
+  const {user,onLogout} = useContext(AuthContext);
   const [showProfileDetails, setShowProfileDetails] = useState(false);
   const navRef = useRef();
   const navMenu = [
@@ -39,7 +39,11 @@ const Navbar = () => {
   };
 
   window.addEventListener("scroll", navColorHandler);
+  const logoutHandler=(e)=>{
+    e.preventDefault();
+    onLogout();
 
+  }
   const showDetailsMenu = () => {
     setShowProfileDetails((p) => !p);
   };
@@ -81,16 +85,12 @@ const Navbar = () => {
                     <li>
                       <NavLink to="/profile">Profile</NavLink>
                     </li>
-                    <li>Logout</li>
+                    <li onClick={logoutHandler}>Logout</li>
                   </div>
                 )}
               </div>
             </>
-          ) : (
-            <button className={classes.signIn} to="/login">
-              Sign In
-            </button>
-          )}
+          ) : null}
         </div>
         <div></div>
       </div>
