@@ -4,14 +4,15 @@ import List from '../components/List/List'
 import classes from "./Home.module.css";
 import axios from "axios"
 import { useLocation } from 'react-router-dom';
+
 const Home = ({type}) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
+  const [err,setErr]=useState(false);
   const loc=useLocation()
-  console.log(loc)
-  
   useEffect(() => {
     const getRandomLists = async () => {
+      setErr(false);
       try {
         const res = await axios.get(
           `lists/${type ? "?type=" + type : ""}${
@@ -25,8 +26,9 @@ const Home = ({type}) => {
           }
         );
         setLists(res.data.list);
+        console.log(res.data.list)
       } catch (err) {
-        console.log(err);
+        setErr(true);
       }
     };
     if(loc.pathname === "/") {
@@ -35,15 +37,19 @@ const Home = ({type}) => {
     }
     getRandomLists();
   }, [type, genre]);
-
-  console.log(lists)
   return (
+    <>
     <div className={classes.home}>
       <Featured type={type} setGenre={setGenre} />
-      {lists.map((list) => (
+      {lists.length>0 && !err ? lists.map((list) => (
         <List list={list} />
-      ))}           
+      )):
+      <div className='no-res'>
+        {lists.length <=0 && `Nothing found for ${genre}`}
+        {err && "Oops! Somehing went wrong please try again!"}
+      </div>}           
     </div>
+    </>
   )
 }
 
