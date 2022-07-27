@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import { Link } from 'react-router-dom'
 import axios from "axios"
 import classes from "./Featured.module.css"
 import {IoPlaySharp,IoAdd} from "react-icons/io5"
@@ -60,7 +61,7 @@ const Featured = ({type,setGenre}) => {
         <h1 className={classes.movie_title}>{content.title}</h1>
         <p className={classes.desc}>{content.desc}</p>
         <div className={classes.actions}>
-          <button className={classes.play}><IoPlaySharp size={20} color="white" />Play</button>
+          <Link className={classes.play} to={`/watch/${content._id}`} state={{movie:content}}><IoPlaySharp size={20} color="white" />Play</Link>
           <button className={classes.info}><IoAdd size={20} color="white" />Add</button>
         </div>
       </div>
