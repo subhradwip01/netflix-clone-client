@@ -4,12 +4,12 @@ import List from '../components/List/List'
 import classes from "./Home.module.css";
 import axios from "axios"
 import { useLocation } from 'react-router-dom';
-
+import Navbar from '../components/Navbar/Navbar';
 const Home = ({type}) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
   const [err,setErr]=useState(false);
-  const loc=useLocation()
+  const loc=useLocation();
   useEffect(() => {
     const getRandomLists = async () => {
       setErr(false);
@@ -39,6 +39,7 @@ const Home = ({type}) => {
   }, [type, genre]);
   return (
     <>
+    <Navbar/>
     <div className={classes.home}>
       <Featured type={type} setGenre={setGenre} />
       {lists.length>0 && !err ? lists.map((list) => (
