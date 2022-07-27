@@ -63,11 +63,11 @@
 
 .input {
     width: 50%;
-    background-color: white;
+    /* background-color: white; */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 7px;
     height: 50px;
     border-radius: 5px;
 }
@@ -89,7 +89,27 @@ input {
     font-size: 22px;
     cursor: pointer;
 }
+.errMsg {
+    margin-bottom: 10px;
+    padding: 20px 10px;
+    background-color: #F6D7DA;
+    width: 310px;
+    border-radius: 10px;
+    text-align: center;
+    color: #D16C36;
+}
 
+.link{
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.registerButton:disabled{
+    background-color: #e87052;
+    cursor: not-allowed;
+}
 .errorIn {
     border-bottom: 3px solid rgb(255, 145, 0);
 }
