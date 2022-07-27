@@ -8,8 +8,7 @@ import homeIm from "../assets/home-imac.jpg";
 import kids from "../assets/kids.png";
 import useInput from "../hooks/useInput";
 import axios from "axios";
-import Navbar from "../components/Navbar/Navbar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const Register = () => {
   const [step, setStep] = useState(0);
   
@@ -125,6 +124,7 @@ const Register = () => {
              {creating? "Registering..." : "Register"}
             </button>
             </div>
+            <Link className={classes.link} to="/register">Already have an account? Login</Link>
           <p>
             Ready to watch? Enter your email to create or restart your
             membership.
