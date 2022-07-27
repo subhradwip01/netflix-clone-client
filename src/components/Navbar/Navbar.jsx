@@ -1,10 +1,12 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import logo from "../../assets/netflix.png";
 import { NavLink, Link } from "react-router-dom";
 import profile from "../../assets/profile.png";
 import classes from "./navbar.module.css";
 import { FaAngleDown } from "react-icons/fa";
-const Navbar = ({ user }) => {
+import { AuthContext } from "../../AuthContext/AuthContext";
+const Navbar = () => {
+  const {user} = useContext(AuthContext);
   const [showProfileDetails, setShowProfileDetails] = useState(false);
   const navRef = useRef();
   const navMenu = [
@@ -25,8 +27,6 @@ const Navbar = ({ user }) => {
       path: "/mylist",
     },
   ];
-
-  console.log(user)
 
   const navColorHandler = () => {
     console.log(window.screenY);
