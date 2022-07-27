@@ -1,15 +1,13 @@
 import React,{useState,useEffect} from 'react'
 import axios from "axios"
-import imgTitle from "../../assets/mh.png"
 import classes from "./Featured.module.css"
 import {IoPlaySharp,IoAdd} from "react-icons/io5"
-import bgMovie from "../../assets/bg3.jpg"
-
 const Featured = ({type,setGenre}) => {
   const [content, setContent] = useState({});
-
+  const [error,setError]=useState(false)
   useEffect(() => {
     const getRandomContent = async () => {
+      setError(false);
       try {
         const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
@@ -21,19 +19,27 @@ const Featured = ({type,setGenre}) => {
         setContent(res.data.allMovies[0]);
       } catch (err) {
         console.log(err);
+        setError(true)
       }
     };
     getRandomContent();
   }, [type]);
 
-  console.log("content",content)
+  if(!content || error){
+    return (
+      <div className='no-res' style={{height:"80vh"}}>
+        {!content && `Oops! No result found for ${type}`}
+        {error && `Something went wrong please try again later`}
+      </div>
+    )
+  }
   return (
     <div className={classes.featured} style={{"backgroundImage":`url(${content.imgThumbnail})`}} >
       {type && (
         <div className={classes.category}>
           <span>{type === "movie" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre" onChange={(e) => setGenre(e.target.value)}>
-            <option>Genre</option>
+          <select name="genre" id="genre" onChange={(e) => {setGenre(e.target.value|| "")}}>
+            <option value="">Genre</option>
             <option value="adventure">Adventure</option>
             <option value="comedy">Comedy</option>
             <option value="crime">Crime</option>
@@ -58,7 +64,6 @@ const Featured = ({type,setGenre}) => {
           <button className={classes.info}><IoAdd size={20} color="white" />Add</button>
         </div>
       </div>
-
     </div>
   )
 }
