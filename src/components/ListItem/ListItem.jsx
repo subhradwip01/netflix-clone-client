@@ -2,13 +2,12 @@ import React,{useState, useEffect} from 'react'
 import classes from "./ListItem.module.css"
 import {IoPlaySharp,IoAdd} from "react-icons/io5"
 import axios from "axios"
-
+import { Link } from 'react-router-dom'
 
 const ListItem = ({index,item}) => {
   const [isHover,setIsHovered]=useState(false)
    
   const [movie, setMovie] = useState({});
-  console.log(item);
   useEffect(() => {
     const getMovie = async () => {
       try {
@@ -26,8 +25,8 @@ const ListItem = ({index,item}) => {
     };
     getMovie();
   }, [item]);
-  console.log(movie)
   return (
+    <Link to={`/watch/${item}`} state={{movie:movie}}>
     <div className={classes.listItem} style={{"left":`${isHover && 230*index}px`}} onMouseEnter={()=>setIsHovered(true)} onMouseLeave={()=>setIsHovered(false)}>
         <img src={movie.imgThumbnail} alt="" srcset="" />
         {isHover && 
@@ -50,6 +49,7 @@ const ListItem = ({index,item}) => {
         </div>
         </>}
     </div >
+    </Link>
   )
 }
 
