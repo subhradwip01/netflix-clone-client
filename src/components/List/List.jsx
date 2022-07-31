@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import classes from "./List.module.css";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import ListItem from "../ListItem/ListItem";
 
 const List = ({list}) => {
@@ -18,7 +18,7 @@ const List = ({list}) => {
       setSlideNum(slideNum - 1); 
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
     }
-    if (direction === "right" && slideNum < 16-numberOfVideosInFrame) {
+    if (direction === "right" && slideNum < list.content.length-numberOfVideosInFrame) {
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
       setSlideNum(slideNum + 1);
     }
@@ -27,18 +27,17 @@ const List = ({list}) => {
     <div className={classes.list}>
       <h4 className={classes.listTitle}>{list.title}</h4>
       <div className={classes.wrapper}>
-        <FaAngleLeft
+        <IoIosArrowBack
           className={`${classes.sliderArrow} ${classes.left}`}
           size={15}
           onClick={() => handleClick("left")}
-          style={{ display: !isMovied ? "none" : "block" }}
         />
         <div ref={listRef} className={classes.container}>
         {list.content.map((item, i) => (
             <ListItem index={i} item={item} />
           ))}
         </div>
-        <FaAngleRight
+        <IoIosArrowForward
           className={`${classes.sliderArrow} ${classes.right}`}
           onClick={() => handleClick("right")}
         />

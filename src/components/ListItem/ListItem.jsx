@@ -27,11 +27,11 @@ const ListItem = ({index,item}) => {
   }, [item]);
   return (
     <Link to={`/watch/${item}`} state={{movie:movie}}>
-    <div className={classes.listItem} style={{"left":`${isHover && 230*index}px`}} onMouseEnter={()=>setIsHovered(true)} onMouseLeave={()=>setIsHovered(false)}>
-        <img src={movie.imgThumbnail} alt="" srcset="" />
-        {isHover && 
-        <>
-        <video src={movie.trailer} autoPlay={true} loop></video>
+    <div className={classes.listItem}  style={{ left: isHover && index * 225 - 50 + index * 2.5 }} onMouseEnter={()=>setIsHovered(true)} onMouseLeave={()=>setIsHovered(false)}>
+      <div className={classes.listItemInfo}>
+      {!isHover && <img src={movie.imgThumbnail} alt="" srcset="" />}
+        {isHover &&<> <video src={movie.trailer} autoPlay={true} loop></video>
+        
         <div className={classes.itemInfo}>
           <div className={classes.icons}>
             <IoPlaySharp color='white' size={30} className={classes.icon}/>
@@ -48,6 +48,8 @@ const ListItem = ({index,item}) => {
           
         </div>
         </>}
+      </div>
+       
     </div >
     </Link>
   )
