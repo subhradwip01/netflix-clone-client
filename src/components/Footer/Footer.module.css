@@ -1,0 +1,12 @@
+.footer{
+    padding: 50px 0;
+    color: white;
+}
+.footerMenu{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.menuListItem{
+    padding-bottom: 5px;
+}

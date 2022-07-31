@@ -5,6 +5,7 @@ import classes from "./Home.module.css";
 import axios from "axios"
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
 const Home = ({type}) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
@@ -50,6 +51,7 @@ const Home = ({type}) => {
         {err && "Oops! Somehing went wrong please try again!"}
       </div>}           
     </div>
+    <Footer/>
     </>
   )
 }
