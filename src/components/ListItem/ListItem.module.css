@@ -50,6 +50,10 @@ video{
     margin-right: 10px;
     transition: all 0.2s ease;
 }
+.icon:hover{
+    background-color: rgb(207, 204, 204);
+    color: #000 !important;
+}
 
 .itemInfoTop{
     display: flex;

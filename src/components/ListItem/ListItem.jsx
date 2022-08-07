@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react'
 import classes from "./ListItem.module.css"
 import {IoPlaySharp,IoAdd} from "react-icons/io5"
 import axios from "axios"
+import {api} from "../../config"
 import { Link } from 'react-router-dom'
 
 const ListItem = ({index,item}) => {
@@ -11,7 +12,7 @@ const ListItem = ({index,item}) => {
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await axios.get("/movies/find/" + item, {
+        const res = await api.get("/movies/find/" + item, {
           headers: {
             Authorization:
             "Bearer "+JSON.parse(localStorage.getItem("user")).token,
