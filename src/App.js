@@ -6,8 +6,23 @@ import Watch from "./pages/Watch/Watch";
 import Login from "./pages/Login/Login";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext/AuthContext";
+import { api } from "./config";
+import jwt_decode from "jwt-decode"
 function App() {
-  const {user} = useContext(AuthContext);
+  const {user,onLogout} = useContext(AuthContext);
+  api.interceptors.request.use(async (req) => {
+    const token = JSON.parse(localStorage.getItem("user"))?.token;
+    if (token) {
+      const user = jwt_decode(token);
+      const currentTime = new Date().getTime() / 1000;
+      if (currentTime > user.exp) {
+        onLogout()
+        return req;
+      }
+    }
+    return req;
+  });
+  
 
   return (
 
