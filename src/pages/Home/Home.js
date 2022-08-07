@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import Featured from '../../components/Featured/Featured'
 import List from '../../components/List/List'
 import classes from "./Home.module.css";
-import axios from "axios"
+import { api } from '../../config';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
@@ -15,7 +15,7 @@ const Home = ({type}) => {
     const getRandomLists = async () => {
       setErr(false);
       try {
-        const res = await axios.get(
+        const res = await api.get(
           `lists/${type ? "?type=" + type : ""}${
             genre ? "&genre=" + genre : ""
           }`,

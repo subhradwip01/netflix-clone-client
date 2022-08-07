@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import axios from "axios"
+import { api } from '../../config'
 import classes from "./Featured.module.css"
 import {IoPlaySharp,IoAdd} from "react-icons/io5"
 const Featured = ({type,setGenre}) => {
@@ -10,7 +10,7 @@ const Featured = ({type,setGenre}) => {
     const getRandomContent = async () => {
       setError(false);
       try {
-        const res = await axios.get(`/movies/random?type=${type}`, {
+        const res = await api.get(`/movies/random?type=${type}`, {
           headers: {
             Authorization:
               "Bearer "+JSON.parse(localStorage.getItem("user")).token,

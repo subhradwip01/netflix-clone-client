@@ -7,7 +7,7 @@ import homeMb from "../../assets/home-mobile.jpg";
 import homeIm from "../../assets/home-imac.jpg";
 import kids from "../../assets/kids.png";
 import useInput from "../../hooks/useInput";
-import axios from "axios";
+import { api } from "../../config";
 import { useNavigate, Link } from "react-router-dom";
 const Register = () => {
   const {
@@ -49,8 +49,7 @@ const Register = () => {
     }
     setCreating(true);
     try {
-      const res = await axios.post('/auth/signup', data);
-      console.log(res.data.userDetails);
+      const res = await api.post('/auth/signup', data);
       setCreating(false);
       alert("Succesfully Registered");
       navigate("/login")
