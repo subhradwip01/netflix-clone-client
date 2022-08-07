@@ -1,9 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
-import Register from "./pages/Register";
-import Watch from "./pages/Watch";
-import Login from "./pages/Login";
+import Home from "./pages/Home/Home";
+import Register from "./pages/Register/Register";
+import Watch from "./pages/Watch/Watch";
+import Login from "./pages/Login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./AuthContext/AuthContext";
 function App() {

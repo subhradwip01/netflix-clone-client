@@ -1,9 +1,9 @@
 import React,{useState,useContext} from 'react'
 import classes from "./Login.module.css"
 import { Link,useNavigate } from 'react-router-dom';
-import { login } from '../AuthContext/apiCalls';
-import { AuthContext } from '../AuthContext/AuthContext';
-import Navbar from '../components/Navbar/Navbar';
+import { login } from '../../AuthContext/apiCalls';
+import { AuthContext } from '../../AuthContext/AuthContext';
+import Navbar from '../../components/Navbar/Navbar';
 const Login = () => {
     const [data,setData]=useState({
         username:"",

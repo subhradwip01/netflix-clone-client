@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from 'react'
-import Featured from '../components/Featured/Featured'
-import List from '../components/List/List'
+import Featured from '../../components/Featured/Featured'
+import List from '../../components/List/List'
 import classes from "./Home.module.css";
 import axios from "axios"
 import { useLocation } from 'react-router-dom';
-import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 const Home = ({type}) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
@@ -26,9 +26,10 @@ const Home = ({type}) => {
             },
           }
         );
+       
         setLists(res.data.list);
-        console.log(res.data.list)
       } catch (err) {
+        
         setErr(true);
       }
     };
@@ -47,7 +48,7 @@ const Home = ({type}) => {
         <List list={list} />
       )):
       <div className='no-res'>
-        {lists.length <=0 && `Nothing found for ${genre}`}
+        {lists.length <=0 && `Nothing found for ${genre || "any genre"}`}
         {err && "Oops! Somehing went wrong please try again!"}
       </div>}           
     </div>

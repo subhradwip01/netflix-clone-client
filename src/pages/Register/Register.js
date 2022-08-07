@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import classes from "./Register.module.css";
-import homeBg from "../assets/home-bg.jpg";
-import homeTv from "../assets/home-tv.jpg";
-import homeMb from "../assets/home-mobile.jpg";
-import homeIm from "../assets/home-imac.jpg";
-import kids from "../assets/kids.png";
-import useInput from "../hooks/useInput";
+import homeBg from "../../assets/home-bg.jpg";
+import homeTv from "../../assets/home-tv.jpg";
+import homeMb from "../../assets/home-mobile.jpg";
+import homeIm from "../../assets/home-imac.jpg";
+import kids from "../../assets/kids.png";
+import useInput from "../../hooks/useInput";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 const Register = () => {
-  const [step, setStep] = useState(0);
-  
   const {
     value: enteredEmail,
     isValid: enteredEmailIsValid,

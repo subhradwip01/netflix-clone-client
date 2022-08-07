@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../assets/home-bg.jpg");
+    background-image: url("../../assets/home-bg.jpg");
 }
 .form{
    width: 50%;
