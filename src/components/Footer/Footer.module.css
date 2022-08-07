@@ -7,6 +7,19 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+.socialMenu{
+    margin-left: 72px;
+}
+.socialIcon{
+    margin-right: 40px;
+    font-size: 25px;
+    cursor: pointer;
+}
 .menuListItem{
-    padding-bottom: 5px;
+    padding-bottom: 15px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.menuListItem:hover{
+    text-decoration: underline;
 }
