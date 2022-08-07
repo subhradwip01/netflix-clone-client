@@ -4,10 +4,11 @@ import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Watch from "./pages/Watch/Watch";
 import Login from "./pages/Login/Login";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext/AuthContext";
 function App() {
-  const {user} = useContext(AuthContext)
+  const {user} = useContext(AuthContext);
+
   return (
 
     <>
