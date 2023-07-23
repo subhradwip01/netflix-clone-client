@@ -8,6 +8,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext/AuthContext";
 import { api } from "./config";
 import jwt_decode from "jwt-decode"
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const {user,onLogout} = useContext(AuthContext);
   api.interceptors.request.use(async (req) => {

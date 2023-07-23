@@ -9,6 +9,7 @@ import kids from "../../assets/kids.png";
 import useInput from "../../hooks/useInput";
 import { api } from "../../config";
 import { useNavigate, Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 const Register = () => {
   const {
     value: enteredEmail,
@@ -51,18 +52,24 @@ const Register = () => {
     try {
       const res = await api.post('/auth/signup', data);
       setCreating(false);
-      alert("Succesfully Registered");
+      toast.success("Succesfully Registered",{
+        position:toast.POSITION.TOP_RIGHT
+      });
       navigate("/login")
       
     } catch (error) {
       setCreating(false);
       setError(error.response.data.message || "Unable to create! Please try again later")
+      toast.error(error.response.data.message || "Unable to create! Please try again later",{
+        position:toast.POSITION.TOP_RIGHT
+      });
     }
     
   };
   return (
     <>
     <Navbar/>
+    <ToastContainer limit={1}/>
     <div className={classes.register}>
       <div className={classes.wrapper}>
         <div
@@ -73,7 +80,6 @@ const Register = () => {
             Unlimited movies, TV shows and more.
           </h1>
           <p className={classes.subHeading}>Watch anywhere. Cancel anytime.</p>
-          {error && <div className={classes.errMsg}>{error.message}</div>}
             <div className={classes.input}>
               <input
                 type="email"
@@ -121,7 +127,7 @@ const Register = () => {
              {creating? "Registering..." : "Register"}
             </button>
             </div>
-            <Link className={classes.link} to="/register">Already have an account? Login</Link>
+            <Link className={classes.link} to="/login">Already have an account? Login</Link>
           <p>
             Ready to watch? Enter your email to create or restart your
             membership.

@@ -4,6 +4,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import { login } from '../../AuthContext/apiCalls';
 import { AuthContext } from '../../AuthContext/AuthContext';
 import Navbar from '../../components/Navbar/Navbar';
+import { ToastContainer, toast } from 'react-toastify';
 const Login = () => {
     const [data,setData]=useState({
         username:"",
@@ -23,16 +24,20 @@ const Login = () => {
     const loginHandler=async(e)=>{
         e.preventDefault();
         await login(data,dispatch,navigate)
-        
+        if(error.has && !isFetching){
+            toast(error.message,{
+                position: toast.POSITION.TOP_RIGHT
+            })
+        }
     }
+    
+
   return (
     <>
+    <ToastContainer limit={1}/>
     <Navbar/>
     <div className={classes.login}>
         <div className={classes.form}>
-        {(error.has && (
-          <div className={classes.errMsg}>{error.message}</div>
-        ))}
             <form className={classes.formControls}>
                 <input  type="text" name="username" id="username" placeholder="Enter Username" onChange={inputHandler}/>
                 <input type="password" name="password" id="password" placeholder="Enter password" onChange={inputHandler}/>
