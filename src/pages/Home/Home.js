@@ -10,6 +10,7 @@ const Home = ({type}) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
   const [err,setErr]=useState(false);
+  const [hasContent,setHasContent]= useState(false);
   const loc=useLocation();
   useEffect(() => {
     const getRandomLists = async () => {
@@ -35,7 +36,7 @@ const Home = ({type}) => {
     };
     if(loc.pathname === "/") {
       setGenre(null);
-      setLists([])
+      setLists([]);
     }
     getRandomLists();
   }, [type, genre]);
@@ -43,12 +44,12 @@ const Home = ({type}) => {
     <>
     <Navbar/>
     <div className={classes.home}>
-      <Featured type={type} setGenre={setGenre} />
+      <Featured type={type} setGenre={setGenre} hasContent={(hasVal)=>setHasContent(hasVal)}/>
       {lists.length>0 && !err ? lists.map((list) => (
         <List list={list} />
       )):
       <div className='no-res'>
-        {lists.length <=0 && `Nothing found for ${genre || "any genre"}`}
+        {hasContent && lists.length <=0 && `Nothing found for ${genre || "any genre"}`}
         {err && "Oops! Somehing went wrong please try again!"}
       </div>}           
     </div>

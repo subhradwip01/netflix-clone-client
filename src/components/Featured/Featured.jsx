@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { api } from '../../config'
 import classes from "./Featured.module.css"
 import {IoPlaySharp,IoAdd} from "react-icons/io5"
-const Featured = ({type,setGenre}) => {
+const Featured = ({type,setGenre,hasContent}) => {
   const [content, setContent] = useState({});
   const [error,setError]=useState(false)
   useEffect(() => {
@@ -18,18 +18,21 @@ const Featured = ({type,setGenre}) => {
         });
         // console.log(res.data.allMovies[0])
         setContent(res.data.allMovies[0]);
+        hasContent(true);
       } catch (err) {
         console.log(err);
         setError(true)
+        hasContent(false);
       }
     };
     getRandomContent();
   }, [type]);
 
   if(!content || error){
+    hasContent(false)
     return (
-      <div className='no-res' style={{height:"80vh"}}>
-        {!content && `Oops! No result found for ${type}`}
+      <div className='no-res' style={{height:"100vh"}}>
+        {!content && `Oops! No result found ${type ? " for "+type:""}`}
         {error && `Something went wrong please try again later`}
       </div>
     )

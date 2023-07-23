@@ -41,8 +41,8 @@ function App() {
 
         {user && (
           <>
-            <Route path="/movies" element={<Home type="movie" />} />
-            <Route path="/series" element={<Home type="series" />} />
+            <Route path="/movies" element={<Home key="movie" type="movie" />} />
+            <Route path="/series" element={<Home key="series" type="series" />} />
             <Route path="/myList" element={<Home />} />
             <Route path="/watch/:id" element={<Watch />} />{" "}
           </>
