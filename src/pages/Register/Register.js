@@ -61,13 +61,14 @@ const Register = () => {
       });
       navigate("/login");
     } catch (error) {
+      console.log(error);
       setCreating(false);
       setError(
-        error.response.data.message ||
+        error.response.data?.message ||
           "Unable to create! Please try again later"
       );
       toast.error(
-        error.response.data.message ||
+        error.response.data?.message ||
           "Unable to create! Please try again later",
         {
           position: toast.POSITION.TOP_RIGHT,

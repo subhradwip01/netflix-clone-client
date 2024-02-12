@@ -10,7 +10,7 @@ export const login = async (user, dispatch) => {
     console.log(error)
     dispatch(
       loginFailure(
-        error.response.data.message || "Unable to login! Please try again later"
+        error.response.data?.message || "Unable to login! Please try again later"
       )
     );
   }

@@ -25,7 +25,8 @@ const Login = () => {
         e.preventDefault();
         await login(data,dispatch,navigate)
         if(error.has && !isFetching){
-            toast(error.message,{
+            console.log(error)
+            toast.error(error.message ,{
                 position: toast.POSITION.TOP_RIGHT
             })
         }
